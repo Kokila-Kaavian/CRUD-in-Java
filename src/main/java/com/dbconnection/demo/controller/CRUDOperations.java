@@ -1,6 +1,7 @@
 package com.dbconnection.demo.controller;
 
 
+import com.dbconnection.demo.CheckField;
 import com.dbconnection.demo.model.Employee;
 import com.dbconnection.demo.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,15 @@ public class CRUDOperations {
 
     @Autowired
     private EmployeeService employeeService;
+
+    @Autowired
+    private CheckField checkField;
+
+    @GetMapping("/api/check-entity-field")
+    public String check(){
+        checkField.alterTable();
+        return "Success";
+    }
 
     @GetMapping("/")
     public String home() {
